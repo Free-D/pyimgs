@@ -9,9 +9,8 @@ import uuid
 
 from tornado import web, ioloop, gen, options
 
-
-options.define("port", default=32251, help="监听端口", type=int)
-options.define("secret_key", default="default", help="服务密钥", type=str)
+options.define("port", default=os.getenv("PORT"), help="监听端口", type=int)
+options.define("secret_key", default=os.getenv("SECRET_KEY"), help="服务密钥", type=str)
 
 
 class GetImgHandler(web.RequestHandler):
