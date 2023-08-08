@@ -4,12 +4,12 @@
 # @Author     : WangPengDa
 # @Description:
 # @Software   : PyCharm
+import configparser
+import logging
 import os
 import sys
-import logging
-import requests
-import configparser
 
+import requests
 from requests.exceptions import RequestException
 
 CURRENT_PATH = os.path.dirname(os.path.realpath(sys.argv[0]))
@@ -20,8 +20,8 @@ def init_conf():
     if not os.path.exists(conf_path):
         config = open(conf_path, "w")
         config.write("[config]\n")
-        config.write('base_url = "http://127.0.0.1:32251/"\n')
-        config.write('secret_key = "default"\n')
+        config.write("base_url = http://127.0.0.1:32251/\n")
+        config.write("secret_key = default\n")
         config.close()
         return "http://127.0.0.1:32251/", "default"
     config = configparser.ConfigParser()  # 类实例化
