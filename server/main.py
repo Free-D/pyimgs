@@ -19,7 +19,7 @@ class GetImgHandler(web.RequestHandler):
     @gen.coroutine
     def get(self, img):
         self.set_header("Content-Type", "image/jpg")
-        path = "upload/" + img
+        path = os.path.join(CURRENT_PATH, "upload", img)
         if os.path.exists(path):
             file = open(path, "rb")
             while True:
