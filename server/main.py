@@ -5,6 +5,7 @@
 # @Description:
 # @Software   : PyCharm
 import os
+import sys
 import uuid
 
 from tornado import web, ioloop, gen, options
@@ -48,7 +49,7 @@ class UploadHandler(web.RequestHandler):
                 filename = str(uuid.uuid1()).replace('-', '')
                 ext = img.get('filename').split(".")[-1]
                 data = img.get('body')
-                path = f"upload/{filename}.{ext}"
+                path = os.path.join(CURRENT_PATH, "upload", f"{filename}.{ext}")
                 file = open(path, 'wb')  # 保存到upload文件夹中
                 file.write(data)
                 file.close()
@@ -59,6 +60,7 @@ class UploadHandler(web.RequestHandler):
 
 
 if __name__ == '__main__':
+    CURRENT_PATH = os.path.dirname(os.path.realpath(sys.argv[0]))
     options.parse_command_line()
     app = web.Application(
         [
