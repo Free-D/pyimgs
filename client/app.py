@@ -59,8 +59,10 @@ def main():
             }
             result = requests.post(url, files={"img": img_data}, headers=header).json()
             if result.get("success"):
-                logger.info(BASE_URL + "get-img/" + result.get("data"))
-                print(BASE_URL + "get-img/" + result.get("data"))
+                data = result.get("data")
+                logger.info("result =====> " + str(data))
+                for img_name in data:
+                    print(BASE_URL + "get-img/" + img_name)
             else:
                 if result.get("code") == 403:
                     logger.warning("上传错误，检查服务端与客户端密钥是否一致")
