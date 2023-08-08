@@ -4,6 +4,8 @@
 >
 > 主要功能是为`typora`增加一个自定义图床
 
+环境为：python3.10+
+
 
 conf.ini参数解释：
 
@@ -12,6 +14,10 @@ base_url：server部署的地址，默认为本机32251端口
 secret_key：server端与客户端定义的密钥
 ```
 
+本地运行首先执行：
+```shell
+pip install -r requirements.txt
+```
 
 
 docker运行示例：
