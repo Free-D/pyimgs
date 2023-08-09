@@ -70,7 +70,7 @@ def main():
             logger.warning("上传错误，检查服务端是否启动")
         finally:
             img_data.close()
-    else:
+    if not img_list:
         logger.error(f"上传错误，参数为{img_list}")
 
 

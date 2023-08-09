@@ -65,7 +65,7 @@ if __name__ == '__main__':
     app = web.Application(
         [
             (r'/upload/?', UploadHandler),
-            (r'/get-img/(?P<img>\w+.\w{3})/?', GetImgHandler),
+            (r'/get-img/(?P<img>\w+.\w{1,5})/?', GetImgHandler),
         ]
     )
     app.listen(options.options.port)
