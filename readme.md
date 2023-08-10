@@ -26,7 +26,7 @@ pip install -r requirements.txt
 docker运行示例：
 
 ```shell
-docker run --name pyimgs -e PORT=端口 -e SECRET_KEY=密钥 -v 本地路径:/pyimgs/server/upload -p 本地端口:容器端口 -d freenn/pyimgs:1.2
+docker run --name pyimgs -e PORT=端口 -e SECRET_KEY=密钥 -v 本地路径:/pyimgs/server/upload -p 本地端口:容器端口 -d freenn/pyimgs:1.3
 ```
 
 命令行启动服务端示例：
